@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WebDev Academy</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+ <!-- =========================
+     AUTHENTICATION SCREEN
+========================= -->
+
+<section id="authScreen" class="auth-screen">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            <div class="auth-logo-icon">W</div>
+            <h1>WebDev Academy</h1>
+        </div>
+
+        <!-- LOGIN -->
+
+        <div id="loginForm">
+
+            <h2>Welcome back 👋</h2>
+
+            <p class="auth-subtitle">
+                Login to continue your learning journey.
+            </p>
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Enter your email"
+                autocomplete="email"
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+            >
+
+            <button
+                type="button"
+                id="loginBtn"
+                class="auth-button"
+            >
+                Login
+            </button>
+
+            <p id="loginMessage" class="auth-message"></p>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <button
+                    type="button"
+                    id="showRegisterBtn"
+                    class="text-button"
+                >
+                    Create account
+                </button>
+            </p>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <div id="registerForm" style="display:none;">
+
+            <h2>Create your account 🚀</h2>
+
+            <p class="auth-subtitle">
+                Start learning web development today.
+            </p>
+
+            <label>Your name</label>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Enter your name"
+                autocomplete="name"
+            >
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Enter your email"
+                autocomplete="email"
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="At least 6 characters"
+                autocomplete="new-password"
+            >
+
+            <label>Confirm password</label>
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Enter password again"
+                autocomplete="new-password"
+            >
+
+            <button
+                type="button"
+                id="registerBtn"
+                class="auth-button"
+            >
+                Create Account
+            </button>
+
+            <p id="registerMessage" class="auth-message"></p>
+
+            <p class="auth-switch">
+                Already have an account?
+                <button
+                    type="button"
+                    id="showLoginBtn"
+                    class="text-button"
+                >
+                    Login
+                </button>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>   
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">W</div>
+            <div>
+                <h2>WebDev</h2>
+                <span>ACADEMY</span>
+            </div>
+        </div>
+
+        <nav>
+            <button class="nav-link active" data-page="dashboard">
+                🏠 <span>Dashboard</span>
+            </button>
+
+            <button class="nav-link" data-page="lessons">
+                📚 <span>Lessons</span>
+            </button>
+
+            <button class="nav-link" data-page="practice">
+                💻 <span>Practice</span>
+            </button>
+
+            <button class="nav-link" data-page="projects">
+                🚀 <span>Projects</span>
+            </button>
+
+            <button class="nav-link" data-page="progress">
+                📊 <span>Progress</span>
+            </button>
+
+            <button class="nav-link" data-page="badges">
+                🏆 <span>Badges</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="nav-link">
+                ⚙️ <span>Settings</span>
+            </button>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN APP -->
+    <div class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <div class="top-title">
+                <h1 id="pageTitle">Dashboard</h1>
+                <p>Learn. Practice. Build.</p>
+            </div>
+
+            <div class="top-actions">
+
+                <button id="themeBtn" class="icon-btn">
+                    🌙
+                </button>
+
+                <div class="profile">
+                    <div class="avatar">S</div>
+
+                    <div class="profile-info">
+                        <strong>Student</strong>
+                        <small>Web Developer</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <main id="dashboardPage" class="page active-page">
+
+            <section class="welcome-card">
+
+                <div>
+                    <span class="small-label">WELCOME BACK 👋</span>
+
+                    <h2>
+                        Continue your<br>
+                        web-development journey.
+                    </h2>
+
+                    <p>
+                        Learn HTML, CSS and JavaScript from the
+                        foundation to real-world projects.
+                    </p>
+
+                    <button class="primary-btn" onclick="openLesson()">
+                        Continue Learning →
+                    </button>
+                </div>
+
+                <div class="welcome-code">
+                    <span>&lt;/&gt;</span>
+                </div>
+
+            </section>
+
+
+            <!-- STATS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <span class="stat-icon">🔥</span>
+                    <div>
+                        <strong>7</strong>
+                        <p>Day Streak</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">⚡</span>
+                    <div>
+                        <strong>850</strong>
+                        <p>XP Points</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">📚</span>
+                    <div>
+                        <strong>12</strong>
+                        <p>Lessons</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">🏆</span>
+                    <div>
+                        <strong>5</strong>
+                        <p>Badges</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <div class="dashboard-grid">
+
+                <!-- PROGRESS -->
+                <section class="card">
+
+                    <div class="section-heading">
+                        <div>
+                            <h2>Your Progress</h2>
+                            <p>Keep going. You're improving.</p>
+                        </div>
+
+                        <strong class="overall-number">18%</strong>
+                    </div>
+
+                    <div class="progress-item">
+
+                        <div class="progress-label">
+                            <span>HTML</span>
+                            <strong>35%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill html-fill"
+                                 style="width:35%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div class="progress-label">
+                            <span>CSS</span>
+                            <strong>10%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill css-fill"
+                                 style="width:10%"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div class="progress-label">
+                            <span>JavaScript</span>
+                            <strong>0%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill js-fill"
+                                 style="width:0"></div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- TEACHER -->
+                <section class="card teacher-card">
+
+                    <span class="small-label">YOUR TEACHER</span>
+
+                    <div class="teacher-content">
+
+                        <div class="teacher-avatar">
+                            👨‍🏫
+                        </div>
+
+                        <div>
+                            <h2>Let's continue.</h2>
+
+                            <p>
+                                "Today we're going to understand
+                                HTML attributes slowly, step by step."
+                            </p>
+
+                            <button class="text-btn"
+                                    onclick="openLesson()">
+                                Start Lesson →
+                            </button>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- CONTINUE -->
+            <section class="card continue-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="small-label">CONTINUE LEARNING</span>
+                        <h2>HTML Foundations</h2>
+                    </div>
+
+                    <span class="lesson-number">
+                        Lesson 4 / 20
+                    </span>
+
+                </div>
+
+
+                <div class="lesson-row">
+
+                    <div class="lesson-icon">
+                        &lt;/&gt;
+                    </div>
+
+                    <div class="lesson-info">
+                        <h3>HTML Attributes</h3>
+                        <p>
+                            Learn what attributes are,
+                            why we use them and how to write them.
+                        </p>
+                    </div>
+
+                    <button class="primary-btn"
+                            onclick="openLesson()">
+                        Continue →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- LEARNING PATH -->
+            <section class="card">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="small-label">YOUR ROADMAP</span>
+                        <h2>Learning Path</h2>
+                    </div>
+                </div>
+
+
+                <div class="learning-path">
+
+                    <div class="path active">
+                        <div class="path-number">✓</div>
+
+                        <div>
+                            <h3>HTML Foundations</h3>
+                            <p>20 lessons</p>
+                        </div>
+
+                        <span>35%</span>
+                    </div>
+
+
+                    <div class="path locked">
+                        <div class="path-number">2</div>
+
+                        <div>
+                            <h3>CSS Fundamentals</h3>
+                            <p>25 lessons</p>
+                        </div>
+
+                        <span>🔒</span>
+                    </div>
+
+
+                    <div class="path locked">
+                        <div class="path-number">3</div>
+
+                        <div>
+                            <h3>JavaScript Fundamentals</h3>
+                            <p>30 lessons</p>
+                        </div>
+
+                        <span>🔒</span>
+                    </div>
+
+
+                    <div class="path locked">
+                        <div class="path-number">4</div>
+
+                        <div>
+                            <h3>Responsive Web Design</h3>
+                            <p>18 lessons</p>
+                        </div>
+
+                        <span>🔒</span>
+                    </div>
+
+
+                    <div class="path locked">
+                        <div class="path-number">5</div>
+
+                        <div>
+                            <h3>Real Projects</h3>
+                            <p>10 projects</p>
+                        </div>
+
+                        <span>🔒</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- LESSONS PAGE -->
+        <main id="lessonsPage" class="page">
+
+            <section class="page-header">
+
+                <span class="small-label">COURSES</span>
+
+                <h2>Learn Web Development</h2>
+
+                <p>
+                    Follow the path from beginner to building
+                    real websites.
+                </p>
+
+            </section>
+
+
+            <div class="course-grid">
+
+                <div class="course-card unlocked">
+
+                    <div class="course-icon html-icon">
+                        &lt;/&gt;
+                    </div>
+
+                    <span class="course-status">
+                        IN PROGRESS
+                    </span>
+
+                    <h3>HTML Foundations</h3>
+
+                    <p>
+                        Learn HTML from the beginning.
+                        Tags, elements, attributes,
+                        forms, links and more.
+                    </p>
+
+                    <div class="course-progress">
+                        <div>
+                            <span>35% complete</span>
+                            <strong>7 / 20</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill html-fill"
+                                 style="width:35%"></div>
+                        </div>
+                    </div>
+
+                    <button class="primary-btn"
+                            onclick="openLesson()">
+                        Continue
+                    </button>
+
+                </div>
+
+
+                <div class="course-card locked">
+
+                    <div class="course-icon">
+                        🎨
+                    </div>
+
+                    <span class="course-status">
+                        LOCKED
+                    </span>
+
+                    <h3>CSS Fundamentals</h3>
+
+                    <p>
+                        Learn colors, layouts, spacing,
+                        animations and responsive design.
+                    </p>
+
+                    <button class="secondary-btn">
+                        🔒 Complete HTML First
+                    </button>
+
+                </div>
+
+
+                <div class="course-card locked">
+
+                    <div class="course-icon">
+                        ⚡
+                    </div>
+
+                    <span class="course-status">
+                        LOCKED
+                    </span>
+
+                    <h3>JavaScript Fundamentals</h3>
+
+                    <p>
+                        Learn programming logic,
+                        functions, events and interactivity.
+                    </p>
+
+                    <button class="secondary-btn">
+                        🔒 Complete CSS First
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <!-- PRACTICE PAGE -->
+        <main id="practicePage" class="page">
+
+            <section class="page-header">
+
+                <span class="small-label">PRACTICE</span>
+
+                <h2>Practice What You Learn</h2>
+
+                <p>
+                    Write code and test your understanding.
+                </p>
+
+            </section>
+
+
+            <section class="code-editor-card">
+
+                <div class="editor-top">
+
+                    <div class="dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <strong>index.html</strong>
+
+                    <button onclick="runCode()">
+                        ▶ Run
+                    </button>
+
+                </div>
+
+
+                <textarea id="codeEditor"><h1>Hello World</h1>
+<p>I am learning web development.</p></textarea>
+
+
+                <div class="preview-title">
+                    LIVE PREVIEW
+                </div>
+
+                <iframe id="preview"></iframe>
+
+            </section>
+
+        </main>
+
+
+        <!-- PROJECTS PAGE -->
+        <main id="projectsPage" class="page">
+
+            <section class="page-header">
+
+                <span class="small-label">PROJECTS</span>
+
+                <h2>Build Real Websites</h2>
+
+                <p>
+                    Your projects will become part of your
+                    developer portfolio.
+                </p>
+
+            </section>
+
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <span>01</span>
+                    <h3>Personal Portfolio</h3>
+                    <p>Build your first professional portfolio.</p>
+                    <button>Start Project →</button>
+                </div>
+
+                <div class="project-card">
+                    <span>02</span>
+                    <h3>School Website</h3>
+                    <p>Create a complete multi-page school website.</p>
+                    <button>Locked 🔒</button>
+                </div>
+
+                <div class="project-card">
+                    <span>03</span>
+                    <h3>Business Website</h3>
+                    <p>Build a website for a real business.</p>
+                    <button>Locked 🔒</button>
+                </div>
+
+                <div class="project-card">
+                    <span>04</span>
+                    <h3>Web App</h3>
+                    <p>Combine HTML, CSS and JavaScript.</p>
+                    <button>Locked 🔒</button>
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <!-- PROGRESS PAGE -->
+        <main id="progressPage" class="page">
+
+            <section class="page-header">
+
+                <span class="small-label">YOUR JOURNEY</span>
+
+                <h2>Progress History</h2>
+
+                <p>
+                    See how far you've come.
+                </p>
+
+            </section>
+
+
+            <section class="card progress-history">
+
+                <div class="history-item">
+                    <span>HTML Basics</span>
+                    <strong>✓ Completed</strong>
+                </div>
+
+                <div class="history-item">
+                    <span>HTML Headings</span>
+                    <strong>✓ Completed</strong>
+                </div>
+
+                <div class="history-item">
+                    <span>HTML Paragraphs</span>
+                    <strong>✓ Completed</strong>
+                </div>
+
+                <div class="history-item">
+                <span>HTML Attributes</span>
+              
+                       <strong>In Progress</strong>
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- BADGES PAGE -->
+        <main id="badgesPage" class="page">
+
+            <section class="page-header">
+
+                <span class="small-label">ACHIEVEMENTS</span>
+
+                <h2>Your Badges</h2>
+
+                <p>
+                    Earn badges as you learn and build.
+                </p>
+
+            </section>
+
+
+            <div class="badge-grid">
+
+                <div class="badge-card earned">
+                    <div>🌱</div>
+                    <h3>First Step</h3>
+                    <p>Started your coding journey.</p>
+                </div>
+
+                <div class="badge-card earned">
+                    <div>💻</div>
+                    <h3>Coder</h3>
+                    <p>Completed your first coding lesson.</p>
+                </div>
+
+                <div class="badge-card earned">
+                    <div>🔥</div>
+                    <h3>7 Day Streak</h3>
+                    <p>Learned for seven days.</p>
+                </div>
+
+                <div class="badge-card locked-badge">
+                    <div>🚀</div>
+                    <h3>Project Builder</h3>
+                    <p>Complete your first project.</p>
+                </div>
+
+            </div>
+
+        </main>
+
+
+    </div>
+
+
+    <!-- LESSON MODAL -->
+    <div class="lesson-modal" id="lessonModal">
+
+        <div class="lesson-window">
+
+            <button class="close-btn" onclick="closeLesson()">
+                ×
+            </button>
+
+
+            <div class="lesson-header">
+
+                <div>
+                    <span class="small-label">
+                        HTML FOUNDATIONS
+                    </span>
+
+                    <h2>Lesson 4: HTML Attributes</h2>
+                </div>
+
+                <span class="lesson-progress">
+                    4 / 20
+                </span>
+
+            </div>
+
+
+            <!-- TEACHER -->
+            <div class="teacher-lesson">
+
+                <div class="teacher-image">
+                    👨‍🏫
+                </div>
+
+                <div class="teacher-speech">
+
+                    <strong>Your Teacher</strong>
+
+                    <p id="teacherText">
+                        Welcome back! Today we're going to
+                        learn about HTML attributes.
+                    </p>
+
+                    <div class="teaching-controls">
+
+                        <button onclick="previousTeaching()">
+                            ←
+                        </button>
+
+                        <button onclick="playTeaching()"
+                                id="playBtn">
+                            ▶
+                        </button>
+
+                        <button onclick="nextTeaching()">
+                            →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- LESSON -->
+<article class="lesson-content">
+
+    <h2>What is an HTML attribute?</h2>
+
+    <p>
+        An attribute gives additional information
+        about an HTML element.
+    </p>
+
+    <p>
+        Attributes are normally written inside
+        the opening tag.
+    </p>
+
+    <div class="code-example">
+<pre><code>&lt;a href="https://example.com"&gt;
+    Visit Website
+&lt;/a&gt;</code></pre>
+    </div>
+
+    <h3>Let's break it down</h3>
+
+    <ul>
+        <li>
+            <strong>&lt;a&gt;</strong> is the anchor element.
+        </li>
+
+        <li>
+            <strong>href</strong> is the attribute.
+        </li>
+
+        <li>
+            <strong>"https://example.com"</strong> is the
+            attribute value.
+        </li>
+
+        <li>
+            The text <strong>Visit Website</strong> is what
+            the user sees and clicks.
+        </li>
+    </ul>
+
+    <div class="tip-box">
+        💡 <strong>Teacher Tip:</strong>
+        Think of an attribute as extra information
+        that you give to an HTML element.
+    </div>
+
+
+    <!-- MORE EXAMPLES -->
+
+    <h3>Another Example</h3>
+
+    <p>
+        The <strong>src</strong> attribute tells an image
+        element where its image comes from.
+    </p>
+
+    <div class="code-example">
+<pre><code>&lt;img src="photo.jpg" alt="My photo"&gt;</code></pre>
+    </div>
+
+    <p>
+        Here, <strong>src</strong> tells the browser
+        which image to display.
+    </p>
+
+    <p>
+        The <strong>alt</strong> attribute provides
+        alternative text for the image.
+    </p>
+
+
+    <!-- PRACTICE -->
+
+    <div class="practice-box">
+
+        <h3>💻 Try to understand this</h3>
+
+        <p>
+            Look at the code below. Can you identify
+            the attribute?
+        </p>
+
+        <div class="code-example">
+<pre><code>&lt;input type="text" placeholder="Enter your name"&gt;</code></pre>
+        </div>
+
+        <p>
+            There are actually two attributes here:
+            <strong>type</strong> and
+            <strong>placeholder</strong>.
+        </p>
+
+    </div>
+
+
+    <!-- QUIZ -->
+
+    <div class="quiz">
+
+        <span class="small-label">
+            QUICK QUIZ
+        </span>
+
+        <h3>
+            Which one is an HTML attribute?
+        </h3>
+
+        <button onclick="answerQuiz(this, false)">
+            &lt;p&gt;
+        </button>
+
+        <button onclick="answerQuiz(this, true)">
+            href
+        </button>
+
+        <button onclick="answerQuiz(this, false)">
+            body
+        </button>
+
+        <p id="quizResult"></p>
+
+    </div>
+
+
+    <!-- LESSON NAVIGATION -->
+
+    <div class="lesson-navigation">
+
+        <button class="secondary-btn">
+            ← Previous
+        </button>
+
+        <button
+            class="primary-btn"
+            onclick="completeLesson()">
+            Complete Lesson ✓
+        </button>
+
+    </div>
+
+</article>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/12.2.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.2.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore-compat.js"></script>
+
+    <!-- WEBDEV ACADEMY -->
+    <script src="script.js"></script>
+
+</body>
+      </html>
+
+                    
+              
